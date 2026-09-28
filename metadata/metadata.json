@@ -1,0 +1,32 @@
+{
+  "name": "EDEN",
+  "symbol": "EDEN",
+  "description": "EDEN ecosystem token on Solana.",
+  "external_url": "https://edenlayer.ai",
+  "attributes": [
+    {
+      "trait_type": "Network",
+      "value": "Solana"
+    },
+    {
+      "trait_type": "Cluster",
+      "value": "mainnet-beta"
+    },
+    {
+      "trait_type": "Standard",
+      "value": "Token-2022"
+    },
+    {
+      "trait_type": "Decimals",
+      "value": 9
+    },
+    {
+      "trait_type": "Version",
+      "value": "1.0.0"
+    },
+    {
+      "trait_type": "Mint",
+      "value": "EDENVVPjLTS62hirwreuM53LjFwq52bHp5hNQBm9FE5J"
+    }
+  ]
+}
