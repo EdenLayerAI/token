@@ -30,25 +30,19 @@
       "value": "EDENVVPjLTS62hirwreuM53LjFwq52bHp5hNQBm9FE5J"
     }
   ],
+  "properties": {
+    "category": "image",
+    "files": [
+      {
+        "uri": "https://raw.githubusercontent.com/EdenLayerAI/token/42ca72a1ec1eb86ad49e8e6e56a2a13dbd7dc1ff/public/assets/eden.png",
+        "type": "image/png"
+      }
+    ]
+  },
   "extensions": {
     "website": "https://edenlayer.ai",
     "docs": "https://docs.edenlayer.ai",
     "x": "https://x.com/edenlayer_ai",
-    "token_program_id": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
-    "token_2022": {
-      "configuration_status": "planned",
-      "required_extensions": [
-        "MetadataPointer",
-        "TokenMetadata",
-        "TransferFeeConfig"
-      ],
-      "transfer_fee": {
-        "basis_points": 200,
-        "maximum_fee_tokens": "368920000",
-        "maximum_fee_base_units": "368920000000000000",
-        "fee_token": "EDEN",
-        "decimals": 9
-      }
-    }
+    "token_program_id": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
   }
 }
