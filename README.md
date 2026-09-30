@@ -1,50 +1,56 @@
-# EDEN Token — Tokenomics
+# EDEN Token
 
-> **EDEN 1.0.0** is a Solana Token-2022 asset designed around governed supply, transparent allocation, fee-aware settlement, and a primary **SOL → EDEN** market model.
+> **EDEN 1.0.0** — Solana Token-2022 infrastructure for governed supply, transparent tokenomics, fee-aware settlement, and a primary **SOL → EDEN** market model.
 
-────────
+<p align="center">
+  <img src="./public/assets/eden.png" alt="EDEN Token" width="180" />
+</p>
 
-Overview
+<p align="center">
+  <strong>Solana · Token-2022 · SOL/EDEN · Raydium · Jupiter</strong>
+</p>
 
-|Property                 |Value                                         |
-|-------------------------|----------------------------------------------|
-|**Name**                 |EDEN                                          |
-|**Symbol**               |EDEN                                          |
-|**Version**              |1.0.0                                         |
-|**Network**              |Solana                                        |
-|**Cluster**              |mainnet-beta                                  |
-|**Standard**             |Token-2022                                    |
-|**Decimals**             |9                                             |
-|**Canonical Address**    |`EDENVVPjLTS62hirwreuM53LjFwq52bHp5hNQBm9FE5J`|
-|**Primary Acquisition**  |SOL → EDEN                                    |
-|**Primary On-Chain Pair**|WSOL / EDEN                                   |
-|**Display Market**       |SOL / EDEN                                    |
+---
 
-> **Deployment status**
-> 
-> The address above is the canonical EDEN production address. Public documentation must not represent it as a live mainnet mint until Solana mainnet-beta verification confirms that the account exists and matches the EDEN Token-2022 specification.
+## Overview
 
-────────
+|Property                      |Value                                         |
+|------------------------------|----------------------------------------------|
+|**Name**                      |EDEN                                          |
+|**Symbol**                    |EDEN                                          |
+|**Version**                   |1.0.0                                         |
+|**Network**                   |Solana                                        |
+|**Cluster**                   |mainnet-beta                                  |
+|**Standard**                  |Token-2022                                    |
+|**Decimals**                  |9                                             |
+|**Canonical Address**         |`EDENVVPjLTS62hirwreuM53LjFwq52bHp5hNQBm9FE5J`|
+|**Maximum Outstanding Supply**|18,446,000,000 EDEN                           |
+|**Primary Acquisition**       |SOL → EDEN                                    |
+|**Primary On-Chain Pair**     |WSOL / EDEN                                   |
+|**Display Market**            |SOL / EDEN                                    |
 
-Supply
+> [!IMPORTANT]
+> The address above is the canonical EDEN production address. Repository configuration must not represent it as a live mainnet mint until Solana mainnet-beta verification confirms that the account exists and matches the EDEN Token-2022 specification.
 
-Maximum Outstanding Supply
+---
 
-18,446,000,000 EDEN
+## Tokenomics
+
+### Maximum Outstanding Supply
+
+**18,446,000,000 EDEN**
 
 At 9 decimals:
 
+```text
 18,446,000,000,000,000,000 base units
+```
 
-EDEN uses a maximum outstanding-supply policy. Outstanding supply must never exceed the policy ceiling.
+EDEN uses a **maximum outstanding\-supply policy**\. Outstanding supply must never exceed the policy ceiling\.
 
-Mint authority is intended to remain governed rather than permanently revoked. Routine post-genesis issuance is disabled by policy. If tokens are permanently burned, replacement issuance may only occur through the governed mint process and must still satisfy the maximum outstanding-supply constraint.
+Mint authority is intended to remain governed rather than permanently revoked\. Routine post\-genesis issuance is disabled by policy\. Burn replacement, when permitted by governance, must still keep outstanding supply at or below the maximum\.
 
-This is a policy-controlled maximum outstanding supply. It is not a claim that the mint has already been initialized, that the full supply has already been minted, or that the full allocation is circulating.
-
-────────
-
-Genesis Allocation
+### Genesis Allocation
 
 |Category                 |Share   |Allocation             |
 |-------------------------|-------:|----------------------:|
@@ -57,40 +63,39 @@ Genesis Allocation
 |Developers & Builders    |5%      |922,300,000 EDEN       |
 |**Total**                |**100%**|**18,446,000,000 EDEN**|
 
-Unallocated genesis supply: 0 EDEN
+**Unallocated genesis supply: 0 EDEN**
 
-Allocation must not be interpreted as circulation. Locked, vested, treasury-controlled, liquidity, market-making, reserved, and distributed balances must be reported independently when public circulation data becomes available.
+> [!NOTE]
+> Allocation does not equal circulation. Locked, vested, treasury-controlled, liquidity, market-making, reserve, and distributed balances must be reported independently.
 
-────────
+Full public tokenomics: [`tokenomics/public/README.md`](./tokenomics/public/README.md)
 
-Token-2022 Profile
+---
 
-Required Extensions
+## Token\-2022 Profile
 
-EDEN’s production specification requires:
+### Required Extensions
 
-• MetadataPointer
-• TokenMetadata
-• TransferFeeConfig
+- `MetadataPointer`
+- `TokenMetadata`
+- `TransferFeeConfig`
 
-Intentionally Absent
+### Intentionally Absent
 
-The production profile is designed without:
+- Freeze Authority
+- Mint Close Authority
+- Permanent Delegate
+- Non\-Transferable
+- Default Account State restrictions
+- Confidential Transfer
+- Transfer Hook
+- Token\-2022 Pausable
 
-• Freeze Authority
-• Mint Close Authority
-• Permanent Delegate
-• Non-Transferable
-• Default Account State restrictions
-• Confidential Transfer
-• Transfer Hook
-• Token-2022 Pausable
+Actual deployed extension and authority state must be verified from Solana mainnet\-beta before being represented as live\.
 
-Actual extension and authority state must be verified directly from Solana mainnet-beta before being represented as deployed.
+---
 
-────────
-
-Transfer Fee Policy
+## Transfer Fee Policy
 
 |Parameter                |Policy                 |
 |-------------------------|----------------------:|
@@ -99,123 +104,317 @@ Transfer Fee Policy
 |Token-2022 maximum fee   |368,920,000 EDEN       |
 |Maximum fee base units   |368,920,000,000,000,000|
 
-The 5% / 500 bps value is an EDEN governance policy ceiling.
+The **5% / 500 bps** value is an EDEN governance policy ceiling\.
 
-It is distinct from Token-2022’s maximum_fee, which is an absolute token amount applied to a transfer-fee configuration rather than a percentage ceiling.
+It is distinct from Token\-2022’s `maximum_fee`, which is an absolute token amount in the transfer\-fee configuration\.
 
-Public fee reporting should distinguish:
+---
 
-• active transfer-fee basis points;
-• pending fee configuration;
-• maximum fee amount;
-• withheld balances;
-• harvested fees;
-• withdrawn fees;
-• treasury receipts;
-• applicable authority addresses.
+## Market Model
 
-────────
+### Primary Acquisition
 
-Market Model
-
-Primary Acquisition
-
+```text
 SOL → EDEN
+```
 
-Primary Liquidity Pair
+### Primary Liquidity Pair
 
+```text
 WSOL / EDEN
+```
 
-Public interfaces should display the market as:
+Public interfaces display:
 
+```text
 SOL / EDEN
+```
 
-The planned primary venue is Raydium CPMM, with Jupiter Swap API V2 used as the primary router when a valid route is available.
+The production design uses:
 
-Secondary Liquidity
+- **Raydium CPMM** for primary liquidity;
+- **Jupiter Swap API V2** for route discovery and transaction construction;
+- EDEN\-owned validation, simulation, policy, review, reconciliation, and receipts\.
 
-Secondary market support may include:
+Secondary liquidity may include:
 
+```text
 EDEN / USDC
+```
 
-A configured market is not equivalent to a live market. Public trading status must be based on verified:
+> [!CAUTION]
+> A configured market is not the same as a live market. Public trading status must be based on verified pool existence, active liquidity, successful buy/sell execution, and current Jupiter routing.
 
-• pool existence;
-• active liquidity;
-• successful SOL → EDEN execution;
-• successful EDEN → SOL execution;
-• current Jupiter routing;
-• acceptable slippage and price impact;
-• settlement reconciliation.
+---
 
-────────
+## Mint Governor
 
-Liquidity Allocation
+EDEN includes an Anchor\-based mint\-governor program for bounded, auditable issuance control\.
 
-The Liquidity & Market Making allocation is:
+```text
+Program ID
+CVSkbcwhBszqgcJ3368nezg2e1tCuibDX96uwNwMQq48
+```
 
-2,766,900,000 EDEN — 15% of total allocation
+The governor enforces:
 
-This allocation may be distributed across:
+- maximum outstanding supply;
+- policy revision checks;
+- stale supply protection;
+- replay\-resistant mint receipts;
+- purpose\-hash receipts;
+- governed mint authority;
+- burn\-replacement accounting\.
 
-• initial WSOL / EDEN liquidity;
-• liquidity reserves;
-• market-making inventory;
-• secondary EDEN / USDC liquidity.
+The same program identity may be deployed independently to Devnet and Mainnet\.
 
-Every deployed, reserved, or market-making balance must reconcile back to the same 15% allocation.
+---
 
-────────
+## Repository Structure
 
-Authorities
+```text
+.
+├── .github/                  GitHub CI, security, release workflows
+├── clusters/                 cluster profiles
+├── config/                   composed token/market configuration
+├── constants/                canonical IDs, mints, supply, URLs
+├── context/                  runtime cluster bindings
+├── deployments/              verified deployment state and receipts
+├── env/                      environment templates only
+├── manifests/                machine-readable protocol manifests
+├── metadata/                 public Token-2022 metadata
+├── programs/
+│   └── mint-governor/        Anchor mint-governor program
+├── public/
+│   ├── README.md
+│   └── assets/
+│       └── eden.png
+├── rpc/                      RPC policy
+├── scripts/                  deployment and verification tooling
+├── src/                      TypeScript implementation
+├── tests/                    unit/integration tests
+├── tokenomics/
+│   └── public/               public tokenomics disclosure
+├── Anchor.toml
+├── Cargo.toml
+├── DEVELOPMENT.md
+├── SECURITY.md
+├── TOKENOMICS.md
+└── package.json
+```
 
-EDEN separates authority responsibilities by function.
+---
 
-|Authority                 |Intended Policy|
-|--------------------------|---------------|
-|Mint Authority            |Governed       |
-|Freeze Authority          |None           |
-|Mint Close Authority      |None           |
-|Transfer Fee Configuration|Governed       |
-|Withheld Fee Withdrawal   |Treasury       |
-|Metadata Update           |Governed       |
+## Requirements
 
-Public authority addresses should only be published after the deployed mint has been independently verified on mainnet-beta.
+```text
+Node.js     >= 26
+pnpm        12.6.0
+TypeScript  ^7.0.2
+Anchor      1.2.0
+Solana CLI  4.1.2
+SPL Token   Token-2022 capable
+```
 
-────────
+Install:
 
-Circulating Supply
+```bash
+corepack enable
+corepack prepare pnpm@12.6.0 --activate
+pnpm install
+```
 
-Public circulating supply must be derived from actual on-chain balances together with documented lock, vesting, treasury, liquidity, market-making, reserve, and custody state.
+Validate:
 
-These values are not interchangeable:
+```bash
+pnpm validate
+```
 
-allocated ≠ minted ≠ unlocked ≠ circulating ≠ liquid
+---
 
-Until mainnet genesis and allocation reconciliation are complete, the maximum supply and allocation table represent protocol policy values, not a circulating-supply claim.
+## Development
 
-────────
+### Toolchain Check
 
-Metadata
+```bash
+pnpm doctor
+```
 
-Canonical Metadata Source
+For Solana/Anchor mainnet tooling:
 
+```bash
+pnpm doctor:mainnet
+```
+
+### Unit Tests
+
+```bash
+pnpm test:unit
+```
+
+### Rust Program
+
+```bash
+pnpm program:fmt
+pnpm program:check
+pnpm program:test
+```
+
+### Anchor Build
+
+```bash
+pnpm platform:doctor
+pnpm anchor:build
+```
+
+If macOS platform\-tools fail with a `rust-lld` / `__libcpp_verbose_abort` incompatibility, see [`PLATFORM_TOOLS.md`](./PLATFORM_TOOLS.md)\.
+
+---
+
+## Devnet
+
+Canonical Devnet test mint:
+
+```text
+testJiVWuSLXEwcLzJseBVfwUvigm28stUfCjegMKm8
+```
+
+Test Devnet connectivity and mint state:
+
+```bash
+pnpm test:devnet
+pnpm rpc:test:devnet
+```
+
+Mint\-governor status:
+
+```bash
+pnpm program:status:devnet
+```
+
+Dry\-run deployment:
+
+```bash
+pnpm anchor:deploy:devnet
+```
+
+Execute only after review:
+
+```bash
+pnpm anchor:deploy:devnet -- --execute
+```
+
+---
+
+## Mainnet\-Beta
+
+Canonical production mint address:
+
+```text
+EDENVVPjLTS62hirwreuM53LjFwq52bHp5hNQBm9FE5J
+```
+
+### Read\-Only Discovery
+
+```bash
+pnpm token:discover
+pnpm program:status:mainnet
+```
+
+### Mainnet Preflight
+
+```bash
+pnpm doctor:mainnet
+pnpm security:keypair
+pnpm signers:check
+pnpm token:create:guard
+```
+
+### Mint Creation
+
+`token:create` is dry\-run by default:
+
+```bash
+pnpm token:create
+```
+
+Execution requires explicit review and the matching canonical mint keypair:
+
+```bash
+pnpm token:create -- --execute
+```
+
+> [!WARNING]
+> Never run mainnet mint creation if the canonical mint already exists. Always run `pnpm token:discover` first.
+
+---
+
+## Signer Security
+
+Private signing material must remain outside the repository\.
+
+Recommended locations:
+
+```text
+$HOME/.eden/keypairs/EDENVVPjLTS62hirwreuM53LjFwq52bHp5hNQBm9FE5J.json
+$HOME/.eden/keypairs/eden-mint-authority.json
+$HOME/.eden/keypairs/eden-fee-payer.json
+$HOME/.eden/keypairs/eden-mint-governor.json
+$HOME/.eden/keypairs/eden-devnet-deployer.json
+$HOME/.eden/keypairs/eden-mainnet-deployer.json
+```
+
+Recommended POSIX permissions:
+
+```bash
+chmod 700 "$HOME/.eden/keypairs"
+chmod 600 "$HOME/.eden/keypairs/"*.json
+```
+
+Never commit, upload, log, screenshot, paste, or bundle:
+
+- private keypair JSON;
+- seed phrases;
+- mnemonic phrases;
+- raw signing keys;
+- RPC API keys;
+- treasury secrets;
+- governance signer secrets\.
+
+Security documentation: [`SECURITY.md`](./SECURITY.md)
+
+---
+
+## Metadata
+
+Canonical metadata source:
+
+```text
 https://raw.githubusercontent.com/EdenLayerAI/token/2e7c61bccd087229aa631a24296275fd87176d66/metadata/metadata.json
+```
 
-Public Links
+Public token image:
 
-• Website: https://edenlayer.ai
-• Documentation: https://docs.edenlayer.ai
-• Token image: public/assets/eden.png
+```text
+public/assets/eden.png
+```
 
-For a final immutable release, metadata/metadata.json and public/assets/eden.png should be committed together and pinned to the same immutable Git commit.
+For a final immutable release, commit:
 
-────────
+```text
+metadata/metadata.json
+public/assets/eden.png
+```
 
-Verification
+together and pin both to the same immutable Git commit\.
 
-Once deployed, EDEN public verification should confirm:
+---
 
+## Verification
+
+Once deployed, public verification should confirm:
+
+```text
 Cluster                 mainnet-beta
 Program                 Token-2022
 Mint                    EDENVVPjLTS62hirwreuM53LjFwq52bHp5hNQBm9FE5J
@@ -228,30 +427,58 @@ Freeze Authority        None
 Mint Close Authority    None
 Transfer Fee            Expected policy state
 Mint Authority          Governed
+```
 
-The Solana blockchain is authoritative for deployed:
+Run production verification with:
 
-• supply;
-• extensions;
-• authorities;
-• fee configuration;
-• token accounts;
-• balances;
-• transaction history;
-• settlement state.
+```bash
+pnpm token:verify:production
+```
 
-────────
+The Solana blockchain is authoritative for deployed supply, extensions, authorities, fee configuration, balances, token accounts, and transaction history\.
 
-Public Disclosure
+---
 
-EDEN tokenomics describe the protocol’s technical and economic design.
+## Public Documentation
 
-They do not, by themselves, establish that a mint, pool, market, allocation, vesting schedule, liquidity position, authority transition, or circulating-supply value is live.
+- [`tokenomics/public/README.md`](./tokenomics/public/README.md) — public tokenomics
+- [`TOKENOMICS.md`](./TOKENOMICS.md) — implementation tokenomics
+- [`DEVELOPMENT.md`](./DEVELOPMENT.md) — engineering workflow
+- [`SECURITY.md`](./SECURITY.md) — signer and production security
+- [`PLATFORM_TOOLS.md`](./PLATFORM_TOOLS.md) — Anchor/Solana build tooling
+- [`MARKET_READINESS.md`](./MARKET_READINESS.md) — market verification
+- [`COMPLIANCE.md`](./COMPLIANCE.md) — technical compliance boundaries
+- [`.github/README.md`](./.github/README.md) — GitHub automation and repository controls
 
-Mainnet deployment, market availability, liquidity, routing, circulating supply, and authority state should only be represented as active after independent verification.
+---
 
-────────
+## Public Links
 
-Version
+- Website: **https://edenlayer\.ai**
+- Documentation: **https://docs\.edenlayer\.ai**
+- X: **https://x\.com/edenlayer\_ai**
 
-EDEN Token 1.0.0
+---
+
+## License
+
+Licensed under the **Apache License 2\.0**\.
+
+See [`LICENSE`](./LICENSE)\.
+
+---
+
+## Disclosure
+
+EDEN repository configuration and tokenomics describe the protocol’s **technical and economic design**\.
+
+They do not, by themselves, establish that a mint, liquidity pool, market, allocation, authority transition, vesting schedule, or circulating\-supply value is live\.
+
+Mainnet deployment, market availability, liquidity, routing, supply, and authority state should only be represented as active after independent on\-chain verification\.
+
+---
+
+<p align="center">
+  <strong>EDEN Token 1.0.0</strong><br />
+  Solana · Token-2022 · Governed Supply · SOL → EDEN
+</p>
